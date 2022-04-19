@@ -29,6 +29,7 @@ class StudentAttendanceController extends Controller
          $data['session']=Session::where('status',1)->first();
         $data['classes'] = FreeClass::all();
         $data['sections'] = Section::all();
+        // dd('okk');
         return view('attendance-managment.list',$data);
     }
 
@@ -119,7 +120,7 @@ return response()->json([ 'message' => $message], 200);
      */
     public function store(Request $request)
     {
-          // dd($request->all());
+           // dd($request->all());
            $ssn=Session::where('status',1)->first();
         $session_id=$ssn->id;
         $section_id=$request->section_id;

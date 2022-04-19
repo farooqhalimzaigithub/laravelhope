@@ -200,11 +200,11 @@
              <td ><input type="hidden" name="student_id[]" value="`+row1.id+`" />`+row1.name+`</td>
              <td ><input type="hidden" name="father_name[]" value="`+row1.father_name+`"  >`+row1.father_name+`</td><td><input type="hidden" name= "dob[]" value="`+row1.dob+`" id="dob">`+row1.dob+`</td>
             <td >Present
-            <input type="checkbox" class="check_id addClass" onclick="clickHandleCheckBox(this)"  name="attendance[]"  value="Present" checked>
+            <input type="checkbox" class="check_id addClass" onclick="clickHandleCheckBox(this)"  name="attendance[]"  value="0" checked>
             Absent
-            <input type="checkbox" class="check_id" onclick="clickHandleCheckBox(this)" name="attendance[]" value="Absent" >
+            <input type="checkbox" class="check_id" onclick="clickHandleCheckBox(this)" name="attendance[]" value="2" >
             Leave
-            <input type="checkbox" class="check_id" onclick="clickHandleCheckBox(this)" name="attendance[]" value="Leave" > 
+            <input type="checkbox" class="check_id" onclick="clickHandleCheckBox(this)" name="attendance[]" value="1" > 
              </td>
              </td>
              

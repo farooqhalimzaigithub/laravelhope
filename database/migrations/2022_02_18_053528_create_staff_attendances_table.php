@@ -16,7 +16,7 @@ class CreateStaffAttendancesTable extends Migration
         Schema::create('staff_attendances', function (Blueprint $table) {
             $table->increments('id');
             // $table->string('status')->nullable();;
-            $table->string('attendance')->nullable();//add by f
+            $table->integer('attendance')->nullable();//add by f
             // $table->string('month');
             // $table->integer('year');
             $table->date('att_date');

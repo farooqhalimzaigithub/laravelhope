@@ -35,10 +35,10 @@
                     <input type="hidden" id="attendance" name="attendance">
                       <label for="student_name">Attendance</label><br>
                       Present
-                      <input type="checkbox"  class="common" value="Present"  id="present" onclick="clickHandleCheckBox(this)">&nbsp;&nbsp;&nbsp;Absent
-                      <input type="checkbox"   class="common" value="Absent"  id="absent" onclick="clickHandleCheckBox(this)">&nbsp;&nbsp;
+                      <input type="checkbox"  class="common" value="0"  id="present" onclick="clickHandleCheckBox(this)">&nbsp;&nbsp;&nbsp;Absent
+                      <input type="checkbox"   class="common" value="2"  id="absent" onclick="clickHandleCheckBox(this)">&nbsp;&nbsp;
                       Leave
-                      <input type="checkbox"   class="common"  value="Leave" id="leave" onclick="clickHandleCheckBox(this)">
+                      <input type="checkbox"   class="common"  value="1" id="leave" onclick="clickHandleCheckBox(this)">
                     </div>
                 </div> 
                   <input type="hidden" name="att_id" id="att_id" value="att_id" />
@@ -194,13 +194,13 @@
              <td ><input type="hidden" name="student_id[]" value="`+row1.student.id+`" />`+row1.student.name+`</td>
               <td ><input type="hidden" name="student_id[]" value="`+row1.class.id+`" />`+row1.class.name+`</td>
              <td ><input type="hidden" name="att_date[]" value="`+row1.att_date+`"  >`+row1.att_date+`</td>`;
-             if(row1.attendance =='Present'){
+             if(row1.attendance ==0){
            html+=`<td><span class="badge bg-success font-size-12"> Present</span> </td>`;
             }
-            if( row1.attendance =='Leave'){
+            if( row1.attendance ==1){
                html+=`<td><span class="badge bg-info font-size-12"> Leave</span> </td>`;
             }
-            if(row1.attendance =='Absent'){
+            if(row1.attendance ==2){
                html+=`<td><span class="badge bg-danger font-size-12"> Absent</span> </td>`;
             }
              html+=`<td><a href="#" class="text-success" data-bs-toggle="modal" onclick="getPayment('${encodeURIComponent(JSON.stringify(row1))}')"><i class="fa fa-edit text-primary mr-5">Attendance</i></a></td></tr>`;
@@ -247,15 +247,15 @@ function getPayment(obj){
                $('#leave').prop('checked',false);
                $('#absent').prop('checked',false);
                $('#present').prop('checked',false);
-            if(obj.attendance=="Present"){//this is for check or un check in model
+            if(obj.attendance==0){//this is for check or un check in model
                // $('#present').val(attendance);
                $('#present').prop('checked',true);
             }
-            if(obj.attendance=="Absent"){
+            if(obj.attendance==2){
                // $('#absent').val(attendance);
                $('#absent').prop('checked',true);
             }
-            if(obj.attendance=="Leave"){
+            if(obj.attendance==1){
                // $('#leave').val(attendance);
                $('#leave').prop('checked',true);
             }
