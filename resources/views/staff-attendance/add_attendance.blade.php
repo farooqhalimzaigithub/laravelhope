@@ -97,11 +97,11 @@
   		<td>{{$staff->CNIC}}</td>
   		<td>{{$staff->DOB}}</td>
   		<td >Present
-            <input type="checkbox" class="check_id addClass" onclick="clickHandleCheckBox(this)"  name="attendance[]"  value="Present" checked>
+            <input type="checkbox" class="check_id addClass" onclick="clickHandleCheckBox(this)"  name="attendance[]"  value="0" checked>
             Absent
-            <input type="checkbox" class="check_id" onclick="clickHandleCheckBox(this)" name="attendance[]" value="Absent" >
+            <input type="checkbox" class="check_id" onclick="clickHandleCheckBox(this)" name="attendance[]" value="2" >
             Leave
-            <input type="checkbox" class="check_id" onclick="clickHandleCheckBox(this)" name="attendance[]" value="Leave" > 
+            <input type="checkbox" class="check_id" onclick="clickHandleCheckBox(this)" name="attendance[]" value="1" > 
              </td>
   	</tr>
   	  @endforeach
@@ -168,11 +168,11 @@
              <td ><input type="hidden" name="student_id[]" value="`+rowf.id+`" />`+rowf.first_name+`</td>
              <td ><input type="hidden" name="father_name[]" value="`+rowf.father_name+`"  >`+rowf.father_name+`</td><td><input type="hidden" name= "dob[]" value="`+rowf.dob+`" id="dob">`+rowf.dob+`</td>
             <td >Present
-            <input type="checkbox" class="check_id addClass" onclick="clickHandleCheckBox(this)"  name="attendance[]"  value="Present" checked>
+            <input type="checkbox" class="check_id addClass" onclick="clickHandleCheckBox(this)"  name="attendance[]"  value="0" checked>
             Absent
-            <input type="checkbox" class="check_id" onclick="clickHandleCheckBox(this)" name="attendance[]" value="Absent" >
+            <input type="checkbox" class="check_id" onclick="clickHandleCheckBox(this)" name="attendance[]" value="2" >
             Leave
-            <input type="checkbox" class="check_id" onclick="clickHandleCheckBox(this)" name="attendance[]" value="Leave" > 
+            <input type="checkbox" class="check_id" onclick="clickHandleCheckBox(this)" name="attendance[]" value="1" > 
              </td>
            
                     

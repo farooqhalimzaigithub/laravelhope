@@ -8,7 +8,7 @@ use App\Models\Staff;
 
 class StaffAttendanceController extends Controller
 {
-    /**
+    /** 
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -97,7 +97,7 @@ return response()->json([ 'message' => $message], 200);
      */
     public function store(Request $request)
     {
-
+// dd($request->all());
         $att_date = $request->input('att_date');
         $school_id = auth()->user()->school_id;
           $rows=$request->input('staff_id');

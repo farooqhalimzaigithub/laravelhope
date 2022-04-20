@@ -120,7 +120,7 @@ return response()->json([ 'message' => $message], 200);
      */
     public function store(Request $request)
     {
-           // dd($request->all());
+            // dd($request->all());
            $ssn=Session::where('status',1)->first();
         $session_id=$ssn->id;
         $section_id=$request->section_id;
