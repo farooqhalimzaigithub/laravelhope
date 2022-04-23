@@ -158,7 +158,6 @@ class SchoolController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
         $inputs = request()->validate([
             'responsible_person' => 'required',
             'email' => 'required',
@@ -173,20 +172,6 @@ class SchoolController extends Controller
         // $inputs['school_id'] = auth()->user()->school_id;
         // dd($inputs);
         $user = User::create($inputs);
-        // "name" => "Muhammad Kamran"
-        // "lat" => "102.54654"
-        // "lng" => "36.554545"
-        // "address" => "No address"
-        // "land_mark" => "i dont know what to enter here"
-        // "school_type" => "CFS"
-        // "status" => "non-functional"
-        // "building_ownership" => "VEC"
-        // "gender" => "Girls"
-        // "building_structure" => "Kacha"
-        // "email" => "mkamran@codeforpakistan.org"
-        // "contact_number" => "66699878"
-        // "password" => "123"
-        // "confirm_password" => "123"
          $school = new School();
         $school->district_id = Auth::user()->district_id;
         $school->tehsil_id = $request->input('tehsil_id');
@@ -199,7 +184,7 @@ class SchoolController extends Controller
         $school->name = $request->input('name');
         $school->lat = $request->input('lat');
         $school->lng = $request->input('lng');
-        $school->address = $request->input('address');
+        // $school->address = $request->input('address');
         $school->land_mark = $request->input('land_mark');
         $school->school_type = $request->input('school_type');
         $school->school_code = $request->input('school_code');

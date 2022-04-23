@@ -33,6 +33,25 @@
 												<input type="hidden" name="district_id" value="{{ Auth::user()->district_id; }}">
 			@csrf
 				<div class="container">
+					<div class="row">
+						<div class="col-xl-8">
+							<div class="form-group">
+								<label>School name</label>
+								<input type="text" class="form-control" name="name"  required="" />		
+								<!-- <span class="form-text text-danger">Please enter Name</span> -->
+							</div>
+							
+						</div>
+						<div class="col-xl-4">
+							<div class="form-group">
+								<label>School Code</label>
+								<input type="text" class="form-control" name="school_code"  required="" />		
+								<!-- <span class="form-text text-danger">Please enter Name</span> -->
+							</div>
+							
+						</div>
+
+						</div>
 						<div class="row">
 						
 						<div class="col-xl-4">
@@ -107,40 +126,24 @@
 						</div>
 						</div>
 					
-					<div class="row">
-						<div class="col-xl-12">
-							<div class="form-group">
-								<label>School name</label>
-								<input type="text" class="form-control" name="name"  required="" />		
-								<!-- <span class="form-text text-danger">Please enter Name</span> -->
-							</div>
-							
-						</div>
-						</div>
+					
 						<div class="row">
-						<div class="col-xl-3">
-							<div class="form-group">
-								<label>School Code</label>
-								<input type="text" class="form-control" name="school_code"  required="" />		
-								<!-- <span class="form-text text-danger">Please enter Name</span> -->
-							</div>
-							
-						</div>
-						<div class="col-xl-3">
+						
+						<div class="col-xl-4">
 							<div class="form-group">
 								<label>Latitude</label>
 								<input type="text" class="form-control" name="lat"  required="" />
 							</div>
 							
 						</div>
-						<div class="col-xl-3">
+						<div class="col-xl-4">
 							<div class="form-group">
 								<label>Longitude</label>
 								<input type="text" class="form-control" name="lng"  required="" />
 							</div>
 							
 						</div>
-						<div class="col-xl-3">
+						<div class="col-xl-4">
 							<div class="form-group">
 								<label>Land Mark</label>
 								<input type="text" class="form-control" name="land_mark"  required="" />
@@ -150,7 +153,7 @@
 					</div>
 					<div class="row">
 						
-						<div class="col-xl-3">
+						<div class="col-xl-4">
 							<div class="form-group">
 								<label>Level</label>
 								<select class="form-control" name="level_id">
@@ -162,7 +165,7 @@
 							
 						</div>
 
-						<div class="col-xl-3">
+						<div class="col-xl-4">
 							<div class="form-group">
 								<label>Transport Required</label>
 								<select class="form-control" name="transport_id">
@@ -173,13 +176,13 @@
 							</div>
 							
 						</div>
-						<div class="col-xl-6">
+						<!-- <div class="col-xl-6">
 							<div class="form-group">
 								<label>Address</label>
 								<input type="text" class="form-control" name="address"  required="" />
 							</div>
 							
-						</div>
+						</div> -->
 					</div>
 					<div class="row">
 
@@ -256,13 +259,13 @@
 				<div class="col-xl-2"><b>Status</b></div>
 					<div class="col-xl-2">
 						<label class="">
-							<input type="radio" class="" name="status" checked value="functional"> Functional
+							<input type="radio" class="" name="status" checked value="1"> Functional
 						</label>
 					</div>
 					
 					<div class="col-xl-2">
 						<label class="">
-							<input type="radio" class="" name="status" value="non-functional"> Non-functional
+							<input type="radio" class="" name="status" value="0"> Non-functional
 						</label>
 					</div>
 				</div>
@@ -302,17 +305,17 @@
 					<div class="col-xl-2"><b>Gender</b></div>
 					<div class="col-xl-2">
 						<label class="">
-							<input type="radio" class="" name="gender" checked value="Boys"> Boys
+							<input type="radio" class="" name="gender" checked value="0"> Boys
 						</label>
 					</div>
 					<div class="col-xl-2">
 						<label class="">
-							<input type="radio" class="" name="gender" value="Girls"> Girls
+							<input type="radio" class="" name="gender" value="1"> Girls
 						</label>
 					</div>
 					<div class="col-xl-2">
 						<label class="">
-							<input type="radio" class="" name="gender" value="Co-education"> Co-education
+							<input type="radio" class="" name="gender" value="2"> Co-education
 						</label>
 					</div>
 				</div>

@@ -75,7 +75,7 @@
 						<form method="POST" action="{{ route('login') }}">
 							@csrf
 							<div class="form-group mb-5">
-								<input class="form-control h-auto" type="email" placeholder="Email or User name" name="email"  />
+								<input class="form-control h-auto" type="text" placeholder="Email or User name" name="email"  />
 
 							</div>
 							<div class="form-group mb-5">
