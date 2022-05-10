@@ -19,33 +19,31 @@
 					</div>
 					<form class="form  mt-2 "  method="post" action="{{route('students.store')}}"  enctype="multipart/form-data" >
 						@csrf
-						<h4 class="mb-8 font-weight-bold text-dark">Registration Info</h4>
+		 				<h4 class="mb-8 font-weight-bold text-dark">Registration Info</h4>
 						<div class="row">
 							<div class="col-lg-9" style="float: left; " >
 
 								<div class="form-row">
-									<div class="form-group col-lg-4">
+									<!-- <div class="form-group col-lg-4">
 										<label for="inputCity">Registration No <span class="text-danger">*</span></label>
 										<input type="text" name="registration_no" class="form-control" id="inputCity" required="">
-									</div>
-									<div class="form-group col-lg-4">
+									</div> -->
+									<!-- <div class="form-group col-lg-4">
 										<label for="inputCity">Admission No <span class="text-danger">*</span></label>
 										<input type="text" name="admission_no" class="form-control" id="inputCity" required="">
-									</div>
+									</div> -->
 									<div class="form-group col-lg-4">
 										<label for="inputCity"> Name <span class="text-danger">*</span></label>
 										<input type="text" name="name" class="form-control" id="inputCity" required="">
 									</div>
-									
+									<div class="form-group col-lg-4">
+										<label for="student_cnic"> B-Form</label>
+										<input type="text" name="student_cnic" class="form-control" id="student_cnic">
+									</div>
 									<div class="form-group col-lg-4">
 										<label for="dob">Date Of Birth <span class="text-danger">*</span></label>
 										<input type="date" name="dob" value="<?php echo date('Y-m-d');?>" class="form-control" id="dob" required="">
 									</div>
-									<div class="form-group col-lg-8	">
-										<label for="student_cnic">Student Form-B</label>
-										<input type="text" name="student_cnic" class="form-control" id="student_cnic">
-									</div>						
-
 								</div>
 							</div>
 							<div class="col-lg-3" style="float: right; height: 20px;"  >
@@ -64,7 +62,7 @@
 							</div> 
 						</div> 
 						<div class="row">
-							<div class="form-group col-lg-4">
+							<!-- <div class="form-group col-lg-4">
 								<label for="inputState">Domicile <span class="text-danger">*</span></label>
 								<select class="form-control"  name="district_id">
 									<option  selected="" disabled="">Choose</option>
@@ -72,23 +70,18 @@
 									<option value="{{$district->id}}">{{$district->district_name}}</option>
 									@endforeach
 								</select>
+							</div> -->
+							<div class="form-group col-lg-3">
+								<label for="inputCity">Father Name <span class="text-danger">*</span></label>
+								<input type="text" name="father_name" class="form-control" id="inputCity">
 							</div>
-							<div class="form-group col-lg-4">
-								<label for="inputState">Religion</label>
-								<select class="form-control "  name="religion">
-									<option value="muslim">Muslim</option>
-									<option value="non-muslim">Non Muslim</option>
-								</select>
+							<div class="form-group col-lg-3">
+								<label for="father_cnic">Father CNIC#</label>
+								<input type="text" name="father_cnic_no" class="form-control" id="father_cnic">
 							</div>
-							<div class="form-group col-lg-4">
-								<label for="inputState">Nationality</label>
-
-								<select class="form-control "  name="country_id">
-									<!-- <option  selected="" disabled="">Choose</option> -->
-									@foreach($countries as $country)
-									<option value="{{$country->id}}">{{$country->name}}</option>
-									@endforeach
-								</select>
+							<div class="form-group col-lg-3">
+								<label for="inputState">Father Occupation</label>
+								<input class="form-control "  name="father_occupation"  placeholder="Father Occupation" />	
 							</div>
 						</div>
 						<hr>
@@ -98,35 +91,34 @@
 
 						</div>
 						<div class="row">
-							<div class="form-group col-lg-4">
-								<label for="inputCity">Father Name <span class="text-danger">*</span></label>
-								<input type="text" name="father_name" class="form-control" id="inputCity">
+							<div class="form-group col-lg-3">
+								<label for="inputState">Religion <span class="text-danger">*</span></label>
+								<select class="form-control "  name="religion">
+									<option value="muslim">Muslim</option>
+									<option value="non-muslim">Non Muslim</option>
+								</select>
 							</div>
-							<div class="form-group col-lg-4">
-								<label for="father_cnic">Father CNIC#</label>
-								<input type="text" name="father_cnic_no" class="form-control" id="father_cnic">
-							</div>
-							<div class="form-group col-lg-4">
-								<label for="inputState">Father Occupation</label>
+							<div class="form-group col-lg-3">
+								<label for="inputState">Country <span class="text-danger">*</span></label>
 
-								<select class="form-control "  name="father_occupation">
-									<option  selected="" disabled="">Choose</option>
-									@foreach($occupations as $occupation)
-									<option value="{{$occupation->id}}">{{$occupation->name}}</option>
+								<select class="form-control "  name="country_id">
+									<!-- <option  selected="" disabled="">Choose</option> -->
+									@foreach($countries as $country)
+									<option value="{{$country->id}}">{{$country->name}}</option>
 									@endforeach
 								</select>
 							</div>
-						</div>
-						<div class="row">
-							<div class="form-group col-lg-4">
+							<div class="form-group col-lg-3">
 								<label for="guardian_name">Guardian Name</label>
 								<input type="text" name="guardian_name" class="form-control" id="guardian_name">
 							</div>
-							<div class="form-group col-lg-4">
+							<div class="form-group col-lg-3">
 								<label for="guardian_cnic_no">Guardian CNIC#</label>
 								<input type="text" name="guardian_cnic_no" class="form-control" id="guardian_cnic_no">
 							</div>
-							<div class="form-group col-lg-4">
+						</div>
+						<div class="row">
+							<div class="form-group col-lg-3">
 								<label for="ddd">Father Alive</label>
 
 								<select class="form-control "  name="father_alive">
@@ -135,6 +127,66 @@
 									<option value="no">No</option>
 								</select>
 							</div>
+							<div class="col-xl-3">
+							<div class="form-group">
+								<label>Tehsil  <span class="text-danger">*</span></label>
+								<select class="form-control  tehsil_id"   name="tehsil_id" id="tehsil_id">
+										<option selected disabled="">Choose</option>
+										@foreach($tehsils as $tehsil)
+	                                     <option value="{{$tehsil->id}}">{{$tehsil->tehsil_name}}</option>
+	                                    @endforeach
+									    </select>
+							</div>
+							
+			 			</div>
+						
+						<div class="col-xl-3">
+							<div class="form-group">
+								<label>NA <span class="text-danger">*</span></label>
+								<select class="form-control "   name="na_id" id="na_id">
+										<option selected disabled="">Choose</option>
+										@foreach($nas as $na)
+	                                      <option value="{{$na->id}}">{{$na->na_name}}</option>
+	                                    @endforeach
+									    </select>
+							</div>
+						</div>
+						<div class="col-xl-3">
+							<div class="form-group">
+								<label>PK <span class="text-danger">*</span></label>
+								<select class="form-control "   name="pk_id" id="pk_id">
+										<option selected disabled="">Choose</option>
+										@foreach($pks as $pk)
+	                                      <option value="{{$pk->id}}">{{$pk->pk_name}}</option>
+	                                    @endforeach
+									    </select>
+						 	</div>
+						</div>
+						</div>
+						<div class="row">
+						
+						
+					</div>
+						<div class="row">
+							<div class="col-xl-3">
+							<div class="form-group">
+								<label>UC   <span class="text-danger">*</span></label>
+								<select class="form-control  uc_id"   name="uc_id" id="uc_id">
+										<option selected disabled="">Choose</option>
+										
+									    </select>
+							</div>
+						</div>
+						<div class="col-xl-3">
+							<div class="form-group">
+								<label>VC   <span class="text-danger">*</span></label>
+								<select class="form-control  vc_id"   name="vc_id" id="vc_id">
+										<option selected disabled="">Choose</option>
+										
+									    </select>
+							</div>
+							
+						</div>
 						</div>
 
 						<hr>
@@ -196,23 +248,23 @@
 			<option value="female">Female</option>
 		</select>
 	</div>
-	<div class="form-group col-lg-4">
-		<label for="inputState">Blood Group</label>
+	<!-- <div class="form-group col-lg-4"> -->
+		<!-- <label for="inputState">Blood Group</label> -->
 		
-		<select class="form-control "  name="blood_id">
+		<!-- <select class="form-control "  name="blood_id"> -->
 			<!-- <option  selected="" disabled="">Choose</option> -->
-			@foreach($bloods as $blood)
+			<!-- @foreach($bloods as $blood)
 			<option value="{{$blood->id}}">{{$blood->name}}</option>
 			@endforeach
 		</select>
-	</div>
+	</div> -->
 	<div class="form-group col-lg-4">
 		<label for="inputState">Disable</label>
 		
 		<select class="form-control "  name="health_id">
 			<!-- <option  selected="" disabled="">Choose</option> -->
 			@foreach($healths as $health)
-			<option value="{{$health->id}}">{{$health->name}}</option>
+			<option value="{{$health->name}}">{{$health->name}}</option>
 			@endforeach
 		</select>
 	</div>
@@ -289,5 +341,114 @@
 		var image = document.getElementById('output');
 		image.src = URL.createObjectURL(event.target.files[0]);
 	};
+
+
+	// 	 $(document).on('change', '.district_id', function (){
+//             var district_id=$(this).val();
+//   // alert(district_id);
+//   console.log(district_id);
+  
+//   $.ajax({
+//     type:'get',
+//     url: "{{ route('districtFind')}}",
+//     data:{'district_id':district_id},
+//     datatype:'json',
+//     success:function(data)
+//     {
+//       console.log(data.tehsilArr);
+//        console.log(data.pkArr);
+//        console.log(data.naArr);
+//     // console.log(data.subjects);
+//         var tr=$(this).parent().parent();
+//           var op1 = "<option value=''>Choose</option>";
+//           var op2 = "<option value=''>Choose</option>";
+//           var op3 = "<option value=''>Choose</option>";
+//           $.each(data.tehsilArr, function(k,val)
+//             {
+//             // console.log(val);
+//              if (val.id!=null && val.id!="") {
+//                 op1 +="<option value='"+val.id+"'>"+val.tehsil_name+"</option>";
+//             }  
+//             });  
+//              $('#tehsil_id').html(" ");
+//              $('#tehsil_id').append(op1);
+
+//              $.each(data.pkArr, function(k,val)
+//             {
+//             // console.log(val);
+//              if (val.id!=null && val.id!="") {
+//                 op2 +="<option value='"+val.id+"'>"+val.pk_name+"</option>";
+//             }  
+//             });  
+//              $('#pk_id').html(" ");
+//              $('#pk_id').append(op2);
+
+//               $.each(data.naArr, function(k,val)
+//             {
+//             // console.log(val);
+//              if (val.id!=null && val.id!="") {
+//                 op3 +="<option value='"+val.id+"'>"+val.na_name+"</option>";
+//             }  
+//             });  
+//              $('#na_id').html(" ");
+//              $('#na_id').append(op3);
+//     },
+//          });
+// });
+// ======================for uc=======================
+$(document).on('change', '.tehsil_id', function (){
+            var tehsil_id=$(this).val();
+  // alert(tehsil_id);
+  console.log(tehsil_id);
+  
+  $.ajax({
+    type:'get',
+    url: "{{ route('ucFind')}}",
+    data:{'tehsil_id':tehsil_id},
+    datatype:'json',
+    success:function(data)
+    {
+      console.log(data);
+        var tr=$(this).parent().parent();
+          var op = "<option value=''>Choose</option>";
+          $.each(data, function(k,val)
+            {
+             if (val.id!=null && val.id!="") {
+                op +="<option value='"+val.id+"'>"+val.uc_name+"</option>";
+            }  
+            });  
+             $('#uc_id').html(" ");
+             $('#uc_id').append(op);
+    },
+         });
+});	
+
+// ======================for VC=======================
+$(document).on('change', '.uc_id', function (){
+            var uc_id=$(this).val();
+  // alert(tehsil_id);
+  console.log(uc_id);
+  
+  $.ajax({
+    type:'get',
+    url: "{{ route('vcFind')}}",
+    data:{'uc_id':uc_id},
+    datatype:'json',
+    success:function(data)
+    {
+      console.log(data);
+        var tr=$(this).parent().parent();
+          var op = "<option value=''>Choose</option>";
+          $.each(data, function(k,val)
+            {
+             if (val.id!=null && val.id!="") {
+                op +="<option value='"+val.id+"'>"+val.vc_name+"</option>";
+            }  
+            });  
+             $('#vc_id').html(" ");
+             $('#vc_id').append(op);
+    },
+         });
+});	
 </script>
 @endpush

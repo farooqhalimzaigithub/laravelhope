@@ -50,10 +50,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        //  dd($request->all());
         $request1 = $request->all();
-        $request1['password'] = Hash::make($request->input('password'));
+        // $request1['password'] = Hash::make($request->input('password'));
+        $request1['password'] = $request->input('password');
          $request1['school_id'] = auth()->user()->school_id;
-         // dd($request1);
+    //   dd($request1);
         $user = User::create($request1);
         return redirect()->route('users.index')->with('success','Data successfully saved');
     }

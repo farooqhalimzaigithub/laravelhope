@@ -37,7 +37,10 @@ class StudentAttendanceController extends Controller
 
     public function sectionList(Request $request)
     {
-        $data=Student::where('current_class_id',$request->class_id)->orWhere('section_id',$request->section_id)->get();
+        $data=Student::where([
+       'current_class_id' => $request->class_id,
+       'section_id' => $request->section_id,
+       'school_id' => auth()->user()->school_id])->get();
         return response()->json($data);
     }
     // ====================reports============
@@ -71,7 +74,13 @@ class StudentAttendanceController extends Controller
 
      public function sectionListShow(Request $request)
     {
-        $data=StudentAttendance::with('student','class')->where('class_id',$request->class_id)->orWhere('section_id',$request->section_id)->where('att_date',$request->att_date)->get();
+        // dd($request->all());
+    //     $data=StudentAttendance::where([
+    //   'class_id' => $request->class_id,
+    //   'section_id' => $request->section_id,
+    //   'att_date' =>$request->att_date,
+    //   'school_id' => auth()->user()->school_id])->get()->toArray();
+     $data=StudentAttendance::with('student','class')->where('class_id',$request->class_id)->where('section_id',$request->section_id)->where('att_date',$request->att_date)->where('school_id',auth()->user()->school_id)->get();
 
         return response()->json($data);
     }

@@ -86,6 +86,10 @@ public function showDetailStudent(Request $request)//fetch student Details
         $data['countries']=Country::all();
         $data['religions']=Religion::all();
         $data['bloods']=BloodGroup::all();
+
+        $data['tehsils']=DB::table('tehsils')->where('district_id',Auth::user()->district_id)->get();
+        $data['nas']=DB::table('nas')->where('district_id',Auth::user()->district_id)->get();
+        $data['pks']=DB::table('pks')->where('district_id',Auth::user()->district_id)->get();
          return view('student-managment.create',$data);
     }
 
@@ -98,12 +102,12 @@ public function showDetailStudent(Request $request)//fetch student Details
     public function store(Request $request)
     {
                 //this is get those uc ,vc ,dist id which is related to the school
-               $uc_id=Auth::user()->school->uc_id;
-               $vc_id=Auth::user()->school->vc_id;
+               // $uc_id=Auth::user()->school->uc_id;
+               // $vc_id=Auth::user()->school->vc_id;
          $district_id=Auth::user()->school->district_id;
-           $tehsil_id=Auth::user()->school->tehsil_id;
-               $na_id=Auth::user()->school->na_id;
-               $pk_id=Auth::user()->school->pk_id;
+           // $tehsil_id=Auth::user()->school->tehsil_id;
+           //     $na_id=Auth::user()->school->na_id;
+           //     $pk_id=Auth::user()->school->pk_id;
                // dd($district_id);
         if($request->hasFile('image')){
                     $file = $request->file('image');
@@ -118,46 +122,42 @@ public function showDetailStudent(Request $request)//fetch student Details
             }else{
                 $file_name=null;
             }
-       $student =new Student();
-       $student->name=$request->name;
-       $student->form_b=$request->student_cnic;
-       $student->dob=$request->dob;
-       $student->father_name=$request->father_name;
-       $student->father_cnic_no=$request->father_cnic_no;
-       $student->registration_no=$request->registration_no;
-       $student->admission_no=$request->admission_no;
-       $student->image=$file_name;
-       $student->father_occupation=$request->father_occupation;
-       $student->religion=$request->religion;//i.e islaam
-       $student->address=$request->address;
-        $student->contact_no=$request->contact_no;
-        $student->gender=$request->gender;
-        $student->health_id=$request->health_id;
-        $student->guardian_name=$request->guardian_name;
-        $student->guardian_cnic_no =$request->guardian_cnic_no;
-        $student->father_alive=$request->father_alive;
-        $student->date_of_admission=$request->date_of_admission;
-       $student->current_class_id=$request->current_class_id;
-       $student->session_id=$request->session_id;
-       $student->section_id=$request->section_id;
-       $student->domicile_id=$request->district_id;
-       $student->country_id=$request->country_id;
-       // $student->last_name=$request->last_name;
-       $student->school_id = auth()->user()->school_id;
-       $student->district_id =$district_id;
-        $student->uc_id =$uc_id;
-        $student->vc_id =$vc_id;
-        $student->na_id =$na_id;
-        $student->pk_id =$pk_id;
-        $student->tehsil_id =$tehsil_id;
-        $student->blood_id=$request->blood_id;
-        $student->previous_school=$request->previous_school;
-        $student->village=$request->village;
-        $student->withdrawl_no=$request->withdrawl_no;
-        $student->clc_no=$request->clc_no;
-        $student->remark=$request->remark;
-       $student->save();
-       $student_id=$student->id;
+                $student =new Student();
+                $student->name=$request->name;
+                $student->form_b=$request->student_cnic;
+                $student->dob=$request->dob;
+                $student->father_name=$request->father_name;
+                $student->father_cnic_no=$request->father_cnic_no;
+                $student->image=$file_name;
+                $student->father_occupation=$request->father_occupation;
+                $student->religion=$request->religion;//i.e islaam
+                $student->address=$request->address;
+                $student->contact_no=$request->contact_no;
+                $student->gender=$request->gender;
+                $student->health_id=$request->health_id;
+                $student->guardian_name=$request->guardian_name;
+                $student->guardian_cnic_no =$request->guardian_cnic_no;
+                $student->father_alive=$request->father_alive;
+                $student->date_of_admission=$request->date_of_admission;
+                $student->current_class_id=$request->current_class_id;
+                $student->session_id=$request->session_id;
+                $student->section_id=$request->section_id;
+                $student->country_id=$request->country_id;
+                // $student->last_name=$request->last_name;
+                $student->school_id = auth()->user()->school_id;
+                $student->district_id =$district_id;
+                $student->uc_id =$request->uc_id;
+                $student->vc_id =$request->vc_id;
+                $student->na_id =$request->na_id;
+                $student->pk_id =$request->pk_id;
+                $student->tehsil_id =$request->tehsil_id;
+                $student->previous_school=$request->previous_school;
+                $student->village=$request->village;
+                $student->withdrawl_no=$request->withdrawl_no;
+                $student->clc_no=$request->clc_no;
+                $student->remark=$request->remark;
+                $student->save();
+                $student_id=$student->id;
      $fee_structure = FeeStructure::where('class_id',$request->current_class_id)->first();//this is error accur ewhen not add fee in fee structure note other wise they will pass null 
      // dd($fee_structure);
      $fee_amount=$fee_structure->amount;

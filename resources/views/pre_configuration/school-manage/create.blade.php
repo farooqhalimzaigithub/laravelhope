@@ -276,27 +276,27 @@
 					<div class="col-xl-2"><b>Building Ownership</b></div>
 						<div class="col-xl-2">
 							<label class="">
-								<input type="radio" class="" name="building_ownership" checked value="Govt"> Govt
+								<input type="radio" class="" name="building_ownership" checked value="0"> Govt
 							</label>
 						</div>
 						
 						<div class="col-xl-2">
 							<label class="">
-								<input type="radio" class="" name="building_ownership" value="VEC"> VEC
+								<input type="radio" class="" name="building_ownership" value="1"> VEC
 							</label>
 						</div>
 
 
 						<div class="col-xl-2">
 							<label class="">
-								<input type="radio" class="" name="building_ownership" value="Communal"> Communal
+								<input type="radio" class="" name="building_ownership" value="2"> Communal
 							</label>
 						</div>
 
 
 						<div class="col-xl-2">
 							<label class="">
-								<input type="radio" class="" name="building_ownership" value="Personal"> Personal
+								<input type="radio" class="" name="building_ownership" value="3"> Personal
 							</label>
 						</div>
 				</div>

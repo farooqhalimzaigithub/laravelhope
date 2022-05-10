@@ -12,11 +12,12 @@
 				</div>
 				<div class="container">
 					<form class="form" method="POST" action="{{ route('users.store') }}" >
-					@if( auth()->user()->role_id === 3)
+				
+						@csrf
+							@if( auth()->user()->role_id == 3)
 						<!-- role_id for dmo  -->
 						<input type="hidden" name="role_id" value="2" />
 					@endif
-						@csrf
 					<div class="row" >
 						<div class="col-lg-6">
 							<label> Name</label>
@@ -44,30 +45,30 @@
 							<input type="number" class="form-control" name="contact_number" placeholder="Contact number" />
 							<span class="form-text text-muted">Please enter contact number</span>
 						</div>
-						@if( auth()->user()->role_id !== 3 && auth()->user()->role_id !== 2)
-						<div class="col-lg-6">
-							<label>Role</label>
-							<select name="role_id" required="true" class="form-control">
-								<option value=""> Select Role </option>
-								@foreach($roles as $role)
-								<option value="{{$role->id}}">{{$role->name}}</option>
-								@endforeach
-							</select>
-						</div>
-						@endif
+						<!--@if( auth()->user()->role_id !== 3 && auth()->user()->role_id !== 2)-->
+						<!--<div class="col-lg-6">-->
+						<!--	<label>Role</label>-->
+						<!--	<select name="role_id" required="true" class="form-control">-->
+						<!--		<option value=""> Select Role </option>-->
+						<!--		@foreach($roles as $role)-->
+						<!--		<option value="{{$role->id}}">{{$role->name}}</option>-->
+						<!--		@endforeach-->
+						<!--	</select>-->
+						<!--</div>-->
+						<!--@endif-->
 
-						@if(auth()->user()->role_id === 3)
+						
 						<!-- show only to hq user role id 3 -->
 						<div class="col-lg-6">
 							<label>District</label>
 							<select name="district_id" required="true" class="form-control">
 								<option value=""> Select District </option>
 								@foreach($districts as $district)
-								<option value="{{$district->districtId}}">{{$district->districtTitle}}</option>
+								<option value="{{$district->id}}">{{$district->district_name}}</option>
 								@endforeach
 							</select>
 						</div>
-						@endif
+					
 
 					</div>
 					
@@ -82,23 +83,10 @@
 						</div>
 						<!--end::Wizard Actions-->
 					</form>
-			</div>
-				
-				<!--end::Body-->
-			
-										<!--end::Mixed Widget 17-->
-		
-									
-								</div>
-								</div>
-								</div>
-								</div>
-								<!--end::Row-->
-								
-								<!--end::Row-->
-								<!--end::Dashboard-->
-
-							<!--end::Container-->
-						<!--end::Entry-->
-					<!-- </div> -->
+			    </div>					
+		  </div>
+	 </div>
+   </div>
+</div>
+<!--end::Row-->
 @endsection

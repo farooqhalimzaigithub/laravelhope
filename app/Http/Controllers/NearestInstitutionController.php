@@ -15,7 +15,7 @@ class NearestInstitutionController extends Controller
      */
     public function index()
     {
-        $data['nearestInstitutions']=NearestInstitution::all();
+        $data['nearestInstitutions']=NearestInstitution::where('school_id',auth()->user()->school_id)->get();
         // dd($data['nearestInstitutions']);
         return view('nearest-institution.index',$data);
 

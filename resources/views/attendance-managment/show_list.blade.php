@@ -60,39 +60,39 @@
         <strong></strong>
     <!-- @endif -->
 </div>
-	<!--begin::Entry-->
-	<div class="d-flex flex-column-fluid">
-		<!--begin::Container-->
-		<div class="container">
-			<!--begin::Teachers-->
-			<div class="d-flex flex-row">
-				<!--begin::Aside-->
+  <!--begin::Entry-->
+  <div class="d-flex flex-column-fluid">
+    <!--begin::Container-->
+    <div class="container">
+      <!--begin::Teachers-->
+      <div class="d-flex flex-row">
+        <!--begin::Aside-->
 
-				<!--end::Aside-->
-				<!--begin::Content-->
-				<div class="flex-row-fluid ml-lg-8">
-					<!--begin::Card-->
-					<div class="card card-custom">
-						<!--begin::Header-->
-						<div class="card-header flex-wrap border-0 pt-6 mg-0 pb-0">
-							<h3 class="card-title align-items-start flex-column">
-								<span class="card-label font-weight-bolder text-dark">Show All Attendances </span>
-								<!-- <span class="text-muted mt-1 font-weight-bold font-size-sm">Manage over 1600 Fee Tarrif</span> -->
-							</h3>
-							<div class="card-toolbar">
-								<div class="dropdown dropdown-inline" data-toggle="tooltip" title="">
-								</div>
-							</div>
-						</div>
-						<!--end::Header-->
-						<!--begin::Body-->
-						<div class="card-body">
+        <!--end::Aside-->
+        <!--begin::Content-->
+        <div class="flex-row-fluid ml-lg-8">
+          <!--begin::Card-->
+          <div class="card card-custom">
+            <!--begin::Header-->
+            <div class="card-header flex-wrap border-0 pt-6 mg-0 pb-0">
+              <h3 class="card-title align-items-start flex-column">
+                <span class="card-label font-weight-bolder text-dark">Show All Attendances </span>
+                <!-- <span class="text-muted mt-1 font-weight-bold font-size-sm">Manage over 1600 Fee Tarrif</span> -->
+              </h3>
+              <div class="card-toolbar">
+                <div class="dropdown dropdown-inline" data-toggle="tooltip" title="">
+                </div>
+              </div>
+            </div>
+            <!--end::Header-->
+            <!--begin::Body-->
+            <div class="card-body">
               <form action="{{route('student_attendances.store')}}" method="POST" >
                 @csrf
                 <div class="row">
                   <div class="form-group">
                        <label class="form-control-label">Date: <span class="tx-danger">*</span></label>
-                      <input class="form-control" type="date" value="<?php echo date('Y-m-d'); ?>" name="att_date" required >
+                      <input class="form-control att_date" type="date" value="<?php echo date('Y-m-d'); ?>" name="att_date" required >
                   </div>
                  </div>
           <div class="row">
@@ -116,10 +116,6 @@
                 @endforeach
               </select>
             </div>
-            <!-- <div class="col-4 p-5 pt-1">
-              <label class="form-control-label">Date: <span class="text-danger">*</span></label>
-                      <input class="form-control att_date" type="date" value="<?php echo date('Y-m-d'); ?>" name="att_date" required >
-            </div> -->
             <div class="col-4 p-5 pt-1">
                 <label class="form-control-label">Section: <span class="text-danger">*</span></label>
               <select  name="section_id" id="section_id" class="form-control section_id">
@@ -153,15 +149,15 @@
 </table>
 </form>
 </div>
-					<!--end::Body-->
-				</div>
-				<!--end::Card-->
-			</div>
-			<!--end::Content-->
-		</div>
-		<!--end::Teachers-->
-	</div>
-	<!--end::Container-->
+          <!--end::Body-->
+        </div>
+        <!--end::Card-->
+      </div>
+      <!--end::Content-->
+    </div>
+    <!--end::Teachers-->
+  </div>
+  <!--end::Container-->
 </div>
 <!--end::Entry-->
 </div>
@@ -177,7 +173,9 @@
              // var section_id=$('.section_id').val();
              var class_id=$('.class_id').val();
              var section_id=$('.section_id').val();
+              console.log(att_date);
               console.log(class_id);
+              console.log(section_id);
   $.ajax({
          type:'get',
          url: 'sectionListShow',
@@ -203,7 +201,7 @@
             if(row1.attendance ==2){
                html+=`<td><span class="badge bg-danger font-size-12"> Absent</span> </td>`;
             }
-             html+=`<td><a href="#" class="text-success" data-bs-toggle="modal" onclick="getPayment('${encodeURIComponent(JSON.stringify(row1))}')"><i class="fa fa-edit text-primary mr-5">Attendance</i></a></td></tr>`;
+             html+=`<td><a href="#" class="text-success" data-bs-toggle="modal" onclick="getPayment('${encodeURIComponent(JSON.stringify(row1))}')"><i class="fa fa-edit text-primary mr-5"></i></a></td></tr>`;
           }); 
             $('#append_herew').empty();
            $('#append_herew').append(html);

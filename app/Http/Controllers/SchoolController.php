@@ -43,7 +43,7 @@ class SchoolController extends Controller
         $data['school']=Auth::user()->school()->first();
         // dd($data['school']);
          return view('.school.create',$data);
-    }
+    } 
         public function create()
     {
         // dd('okk');
@@ -127,7 +127,7 @@ class SchoolController extends Controller
         $school=School::updateOrCreate(
                     ['id' => $school_id],
                     [
-                        'user_id'   =>$user_id,
+                        // 'user_id'   =>$user_id,
                         'district_id'    => $district_id,
                         'tehsil_id'         =>$tehsil_id,
                         'na_id'        =>$na_id,
@@ -169,7 +169,7 @@ class SchoolController extends Controller
         $inputs['password'] =$request->input('password');//remover encrypt password
         // $inputs['password'] = Hash::make($request->input('password'));
          $inputs['name']    = $request->input('responsible_person');
-        // $inputs['school_id'] = auth()->user()->school_id;
+         $inputs['role_id'] = 1;
         // dd($inputs);
         $user = User::create($inputs);
          $school = new School();
@@ -197,7 +197,7 @@ class SchoolController extends Controller
         $school->transport_id = $request->input('transport_id');
         $school->area = $request->input('area');
         // $school->district_id = $request->input('district_id');
-        $school->user_id = Auth::user()->id;
+        // $school->user_id = Auth::user()->id;
         $school->save();
         
         $school_id = $school->id;
