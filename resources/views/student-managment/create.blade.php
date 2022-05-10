@@ -12,7 +12,7 @@
 						<small class="text-danger">The * fields must be required</small>
 						<div class="card-toolbar">
 							<div class="example-tools  justify-content-center">
-								<span class="example-toggle" data-toggle="tooltip" title="View code"></span>
+			 					<span class="example-toggle" data-toggle="tooltip" title="View code"></span>
 								<span class="example-copy" data-toggle="tooltip" title="Copy code"></span>
 							</div>
 						</div>
@@ -24,14 +24,6 @@
 							<div class="col-lg-9" style="float: left; " >
 
 								<div class="form-row">
-									<!-- <div class="form-group col-lg-4">
-										<label for="inputCity">Registration No <span class="text-danger">*</span></label>
-										<input type="text" name="registration_no" class="form-control" id="inputCity" required="">
-									</div> -->
-									<!-- <div class="form-group col-lg-4">
-										<label for="inputCity">Admission No <span class="text-danger">*</span></label>
-										<input type="text" name="admission_no" class="form-control" id="inputCity" required="">
-									</div> -->
 									<div class="form-group col-lg-4">
 										<label for="inputCity"> Name <span class="text-danger">*</span></label>
 										<input type="text" name="name" class="form-control" id="inputCity" required="">
@@ -62,15 +54,6 @@
 							</div> 
 						</div> 
 						<div class="row">
-							<!-- <div class="form-group col-lg-4">
-								<label for="inputState">Domicile <span class="text-danger">*</span></label>
-								<select class="form-control"  name="district_id">
-									<option  selected="" disabled="">Choose</option>
-									@foreach($districts as $district)
-									<option value="{{$district->id}}">{{$district->district_name}}</option>
-									@endforeach
-								</select>
-							</div> -->
 							<div class="form-group col-lg-3">
 								<label for="inputCity">Father Name <span class="text-danger">*</span></label>
 								<input type="text" name="father_name" class="form-control" id="inputCity">
@@ -86,10 +69,6 @@
 						</div>
 						<hr>
 						<h4 class="mb-8 font-weight-bold text-dark">Personal Details</h4>
-						<div class="row">
-
-
-						</div>
 						<div class="row">
 							<div class="form-group col-lg-3">
 								<label for="inputState">Religion <span class="text-danger">*</span></label>
@@ -248,16 +227,7 @@
 			<option value="female">Female</option>
 		</select>
 	</div>
-	<!-- <div class="form-group col-lg-4"> -->
-		<!-- <label for="inputState">Blood Group</label> -->
-		
-		<!-- <select class="form-control "  name="blood_id"> -->
-			<!-- <option  selected="" disabled="">Choose</option> -->
-			<!-- @foreach($bloods as $blood)
-			<option value="{{$blood->id}}">{{$blood->name}}</option>
-			@endforeach
-		</select>
-	</div> -->
+
 	<div class="form-group col-lg-4">
 		<label for="inputState">Disable</label>
 		

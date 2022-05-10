@@ -80,12 +80,12 @@ public function showDetailStudent(Request $request)//fetch student Details
         $data['session']= Session::where('status',1)->first();
         $data['classes']=FreeClass::all();
         $data['sections']=Section::all();
+        // $data['districts']=DB::table('districts')->get();
         $data['healths']=Health::all();
-        $data['districts']=DB::table('districts')->get();
-        $data['occupations']=Occupation::all();
+        // $data['occupations']=Occupation::all();these are remove 
+        // $data['bloods']=BloodGroup::all();
         $data['countries']=Country::all();
         $data['religions']=Religion::all();
-        $data['bloods']=BloodGroup::all();
 
         $data['tehsils']=DB::table('tehsils')->where('district_id',Auth::user()->district_id)->get();
         $data['nas']=DB::table('nas')->where('district_id',Auth::user()->district_id)->get();
@@ -214,17 +214,21 @@ StudentFee::create([
     public function edit($id)
     {
           $data['session']= Session::where('status',1)->first();
-          $data['classSectionSession'] = FreeClass::all();
+          $data['classes'] = FreeClass::all();
           $data['sections'] = Section::all();
-          $data['healths']=Health::all();
-          $data['occupations']=Occupation::all();
-          $data['levels']=Level::all();
+           $data['healths']=Health::all();
+          // $data['occupations']=Occupation::all();
+          // $data['levels']=Level::all();
+          // $data['provinces']=Province::all();
+          // $data['bloods']=BloodGroup::all();
+          // $data['districts']=DB::table('districts')->get();
           $data['countries']=Country::all();
-          $data['provinces']=Province::all();
           $data['religions']=Religion::all();
-          $data['bloods']=BloodGroup::all();
-          $data['districts']=DB::table('districts')->get();
+
           $data['student']=Student::find($id);
+          $data['tehsils']=DB::table('tehsils')->where('district_id',Auth::user()->district_id)->get();
+          $data['nas']=DB::table('nas')->where('district_id',Auth::user()->district_id)->get();
+          $data['pks']=DB::table('pks')->where('district_id',Auth::user()->district_id)->get();
           // dd($data['student']);
        return view('student-managment.edit',$data);
     }

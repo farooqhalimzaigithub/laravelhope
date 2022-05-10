@@ -33,7 +33,7 @@ class CreateStudentsTable extends Migration
             $table->string('guardian_name')->nullable();
             $table->string('guardian_cnic_no')->nullable();
             $table->string('father_alive')->nullable();
-            $table->dateTime('date_of_admission')->nullable();
+            $table->date('date_of_admission')->nullable();
             $table->integer('domicile_id')->unsigned()->nullable();
              // $table->foreign('domicile_id')->references('id')->on('districts')->onDelete('cascade')->onUpdate('cascade');
              $table->integer('district_id')->unsigned()->nullable();
