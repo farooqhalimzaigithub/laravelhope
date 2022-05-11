@@ -16,8 +16,9 @@
 							</div>
 						</div>
 					</div> -->
-					<form class="form  mt-2 "  method="post" action="{{route('staffs.store')}}"  enctype="multipart/form-data" >
+					<form class="form  mt-2 "  method="post" action="{{route('staffs.update',$staff->id)}}"  enctype="multipart/form-data" >
 						@csrf
+						@method('PUT')
 						<!-- <h4 class="mb-8 font-weight-bold text-dark">Personal Details</h4> -->
 						<div class="row">
 							<div class="col-lg-12"  >

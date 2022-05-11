@@ -157,7 +157,7 @@ class StaffController extends Controller
     public function edit($id)
     {
        
-        
+        // dd($id);
          $data['staff']=Staff::find($id);
          $data['edu_info']=StaffDetail::where('staff_id',$id)->get();
          $data['prof_info']=ProfessionalInfo::where('staff_id',$id)->get();
@@ -173,37 +173,42 @@ class StaffController extends Controller
      */
     public function update(Request $request,$id)
     {
-      // dd($request->all());
+       // dd($request->all());
         $Reg1=StaffDetail::where('staff_id',$id)->delete();
         $Reg2=ProfessionalInfo::where('staff_id',$id)->delete();
-        if($request->hasFile('image')){
-                    $file = $request->file('image');
-                    // $fileName = $file->getClientOriginalName() ;
-                    $extension = $file->getClientOriginalExtension(); 
-                    // $destinationPath = 'images/' ; // for online link will be
-                    $destinationPath = 'images/' ; //for local link will be 
-                    $datetime = date('mdYhisa', time());
-                    $complete_name=$destinationPath.$datetime.'.'.$extension;
-                    $file_name=$datetime.'.'.$extension;
-                    $file->move($destinationPath,$file_name);
-            }else{
-                $file_name=null;
-            }
-             $staff = Staff::find($id);        
-            $staff->first_name=$request->first_name;
-            $staff->last_name=$request->last_name;
-            $staff->designation_id=$request->designation_id;
-            $staff->cnic_no=$request->cnic_no;
-            $staff->gender=$request->gender;
+        // if($request->hasFile('image')){
+        //             $file = $request->file('image');
+        //             // $fileName = $file->getClientOriginalName() ;
+        //             $extension = $file->getClientOriginalExtension(); 
+        //             // $destinationPath = 'images/' ; // for online link will be
+        //             $destinationPath = 'images/' ; //for local link will be 
+        //             $datetime = date('mdYhisa', time());
+        //             $complete_name=$destinationPath.$datetime.'.'.$extension;
+        //             $file_name=$datetime.'.'.$extension;
+        //             $file->move($destinationPath,$file_name);
+        //     }else{
+        //         $file_name=null;
+        //     }
+            $staff       =   Staff::find($id);        
+            $staff->Teacher_Name  =$request->Teacher_Name;
+            $staff->Father_Name   =$request->Father_Name;
+            $staff->Qualification =$request->Qualification;
+            $staff->DOB           =$request->DOB;
+            $staff->Degree        =$request->Degree;
             $staff->marital_status=$request->marital_status;
-            $staff->village=$request->village;
-            $staff->address=$request->address;
-            $staff->mobile_no=$request->mobile_no;
-            $staff->dob=$request->dob;
-            $staff->appointment_date=$request->appointment_date;
-            $staff->image=$file_name;
-         $staff->save();
-         $staff_id=$staff->id;
+            $staff->Subject       =$request->Subject;
+            $staff->CNIC          =$request->CNIC;
+            $staff->Bank_Name     =$request->Bank_Name;
+            $staff->Bank_Code     =$request->Bank_Code;
+            $staff->Account       =$request->Account;
+            $staff->Contact       =$request->Contact;
+            $staff->Whatsapp      =$request->Whatsapp;
+            $staff->Disability    =$request->Disability;
+            $staff->school_id     = auth()->user()->school_id;
+            $staff->Experience    =$request->Experience;
+            $staff->save();
+
+            $staff_id = $staff->id;
          
          $e_rows=$request->input('edu_year');
         $p_rows=$request->input('prof_year');
