@@ -151,7 +151,7 @@
 													<table id="example" class="table table-striped table-bordered" style="width:100%">
 														<thead>
 															<tr>
-																<th>#</th>
+																<th>S.NO</th>
 																
 																<th> Name</th>
 																<th> F/Name</th>
@@ -170,7 +170,7 @@
 						</thead>
 					 	<tbody>
 							@foreach($staffs as $staff)
-							<tr data-id={{$staff->id}}>
+							<tr data-id="{{$staff->id}}" >
 								<input type="hidden" name="id" id="id" value="{{$staff->id}}">
 								<td>{{$loop->iteration}}</td>
 								<!-- <td>{{$staff->registration_no}}</td> -->
@@ -187,14 +187,14 @@
 								<td>{{$staff->Subject}}</td>
 								<td>{{$staff->Qualification}}</td>
 								 <!-- you can get all detail through relation -->
-								<td>
+								<td >
 									<a type="button" class="btn btn-icon btn-light btn-hover-primary btn-sm show_detail" data-toggle="modal" data-target="#myModal">
 										<i class="fa fa-eye text-success"></i>
 									</a>
 									<a href="{{route('staffs.edit',$staff->id)}}" class="btn btn-icon btn-light btn-hover-primary btn-sm" >
 										<i class="fa fa-edit text-success" aria-hidden="true"></i>
 									</a>
-										<form method="post" action='{{route("staffs.destroy",$staff->id) }}' class="">
+										<form method="post" action='{{route("staffs.destroy",$staff->id) }}' class="" style=" display: inline;">
 												{{csrf_field()}}
 												{{method_field('DELETE')}}
 												<button type="submit" class="btn btn-icon btn-light btn-hover-danger btn-sm " style=" border:none; text-align: center; "><i class="fa fa-trash text-danger  "></i></button>

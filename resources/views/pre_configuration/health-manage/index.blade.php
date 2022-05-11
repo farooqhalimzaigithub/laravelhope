@@ -77,7 +77,7 @@
 												<i class="fa fa-edit text-success" aria-hidden="true"></i>
 											</a>
 
-											<form method="post" action='{{route("healths.destroy",$health->id) }}' class="">
+											<form method="post" action='{{route("healths.destroy",$health->id) }}' class="" style=" display: inline;">
 												{{csrf_field()}}
 												{{method_field('DELETE')}}
 												<button type="submit" class="btn btn-icon btn-light btn-hover-danger btn-sm " style=" border:none; text-align: center; "><i class="fa fa-trash text-danger  "></i></button>

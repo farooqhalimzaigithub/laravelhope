@@ -52,10 +52,16 @@ Route::get('/', function () {
               
 
                $data['student_count_att_a'] = StudentAttendance::where('school_id',Auth::user()->school_id)->where('attendance',"Absent")->where('created_at', Carbon::today())->count();
+
                $data['staff_count_att_all'] = Staff::where('school_id',Auth::user()->school_id)->count();
-               $data['staff_count_att_p'] = StaffAttendance::where('school_id',Auth::user()->school_id)->where('attendance',"Present")->where('att_date', Carbon::today())->count();
-               $data['staff_count_att_a'] = StaffAttendance::where('school_id',Auth::user()->school_id)->where('attendance',"Absent")->where('att_date', Carbon::today())->count();
-               $data['staff_count_att_l'] = StaffAttendance::where('school_id',Auth::user()->school_id)->where('attendance',"Leave")->where('att_date', Carbon::today())->count();
+               $data['staff_count_att_p'] = StaffAttendance::where('school_id',Auth::user()->school_id)->where('attendance',0)->where('att_date', Carbon::today())->count(); //0 use for present 
+               
+               // dd($data['student_count_att_a']);
+               $data['staff_count_att_a'] = StaffAttendance::where('school_id',Auth::user()->school_id)->where('attendance',2)->where('att_date', Carbon::today())->count();//1 use for leave
+
+                // dd($data['staff_count_att_a']);
+               $data['staff_count_att_l'] = StaffAttendance::where('school_id',Auth::user()->school_id)->where('attendance',1)->where('att_date', Carbon::today())->count(); //2 use for absent
+
                // echo "<pre >";
                //   print_r($data);exit;
               return view('layouts.dashboard',$data); //this is actualy dashboard

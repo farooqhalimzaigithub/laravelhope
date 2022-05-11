@@ -62,7 +62,7 @@
 										<td>{{$fee->name}}</td>
 										<td>{{$fee->feeCategory->name}}</td>
 										<td>
-											<form method="post" action='{{route("fees.destroy",$fee->id) }}' class="">
+											<form method="post" action='{{route("fees.destroy",$fee->id) }}' class="" style=" display: inline;">
 												{{csrf_field()}}
 												{{method_field('DELETE')}}
 												<button type="submit" class="btn btn-icon btn-light btn-hover-danger btn-sm " style=" border:none; text-align: center; "><i class="fa fa-trash text-danger  "></i></button>

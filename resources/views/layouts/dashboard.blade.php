@@ -86,7 +86,7 @@
                                   <!--end::Svg Icon-->
                                 </span>
                                 <div class="text-inverse-primary font-weight-bolder font-size-h2 mt-3">790</div>
-                                <a href="#" class="text-inverse-primary font-weight-bold font-size-lg mt-1">New Products</a>
+                                <a href="#" class="text-inverse-primary font-weight-bold font-size-lg mt-1"> fee</a>
                               </div>
                             </div>
                             <!--end::Tiles Widget 11-->
@@ -101,7 +101,7 @@
                                   <!--end::Svg Icon-->
                                 </span>
                                 <div class="text-dark font-weight-bolder font-size-h2 mt-3">8,600</div>
-                                <a href="#" class="text-muted text-hover-primary font-weight-bold font-size-lg mt-1">New Customers</a>
+                                <a href="#" class="text-muted text-hover-primary font-weight-bold font-size-lg mt-1">New Users</a>
                               </div>
                             </div>
                             <!--end::Tiles Widget 12-->
@@ -119,7 +119,7 @@
                                   <!--end::Svg Icon-->
                                 </span>
                                 <div class="text-inverse-primary font-weight-bolder font-size-h2 mt-3">790</div>
-                                <a href="#" class="text-inverse-primary font-weight-bold font-size-lg mt-1">New Products</a>
+                                <a href="#" class="text-inverse-primary font-weight-bold font-size-lg mt-1">New Teachers</a>
                               </div>
                             </div>
                             <!--end::Tiles Widget 11-->
@@ -140,7 +140,7 @@
                                   <!--end::Svg Icon-->
                                 </span>
                                 <div class="text-dark font-weight-bolder font-size-h2 mt-3">8,600</div>
-                                <a href="#" class="text-muted text-hover-primary font-weight-bold font-size-lg mt-1">New Customers</a>
+                                <a href="#" class="text-muted text-hover-primary font-weight-bold font-size-lg mt-1">New Students</a>
                               </div>
                             </div>
                             <!--end::Tiles Widget 12-->
