@@ -176,13 +176,6 @@
 							</div>
 							
 						</div>
-						<!-- <div class="col-xl-6">
-							<div class="form-group">
-								<label>Address</label>
-								<input type="text" class="form-control" name="address"  required="" />
-							</div>
-							
-						</div> -->
 					</div>
 					<div class="row">
 

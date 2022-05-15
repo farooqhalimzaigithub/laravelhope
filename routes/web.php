@@ -28,19 +28,29 @@ Route::get('/clear-all', function() {
 });
 Auth::routes();
 Route::get('/', function () {
+  // $date = Carbon::now();
+ $date =Carbon::now()->format('Y-m-d');
+ $ldate = date('Y-m-d');
+
         if(Auth::user()->role_id==3){
              return view('layouts.hq-dashboard'); //this is actualy dashboard
          }else if (Auth::user()->role_id==2) {
 
-          $data['schools'] = School::where('district_id',Auth::user()->district_id)->get();
+          $data['schools'] = School::where('district_id',Auth::user()->district_id)->count();
           $data['tehsils'] = DB::table('tehsils')->where('district_id',Auth::user()->district_id)->get();
           $data['nas'] = DB::table('nas')->where('district_id',Auth::user()->district_id)->get();
           $data['pks'] = DB::table('pks')->where('district_id',Auth::user()->district_id)->get();
-          // dd($data['tehsils']);
+          $data['student_count_att_all'] = Student::where('district_id',Auth::user()->district_id)->count();
+          $data['staff_count_att_all'] = Staff::count();
+         
+           // dd(Auth::user()->district_id);
               return view('layouts.dmo-dashboard',$data); //this is actualy dashboard
          }else{
                $data['student_count_att_all'] = Student::where('school_id',Auth::user()->school_id)->count();
-               $data['student_count_att_p'] = StudentAttendance::where('school_id',Auth::user()->school_id)->where('attendance',"Present")->get();
+               $data['staff_count_att_all'] = Staff::where('school_id',Auth::user()->school_id)->count();
+               
+
+
                $data['pak_std'] = Student::where('school_id',Auth::user()->school_id)->where('country_id',"1")->count();
                $data['afgh_std'] = Student::where('school_id',Auth::user()->school_id)->where('country_id',"2")->count();
                $data['muslim'] = Student::where('school_id',Auth::user()->school_id)->where('religion',"muslim")->count();
@@ -51,15 +61,17 @@ Route::get('/', function () {
                $data['health_yes'] = Student::where('health_id',"2")->count();
               
 
-               $data['student_count_att_a'] = StudentAttendance::where('school_id',Auth::user()->school_id)->where('attendance',"Absent")->where('created_at', Carbon::today())->count();
+      $data['student_count_att_a'] = StudentAttendance::where('school_id',Auth::user()->school_id)->where('attendance',2)->where('att_date', $date)->count();
+      $data['student_count_att_p'] = StudentAttendance::where('school_id',Auth::user()->school_id)->where('attendance',0)->where('att_date',$date)->count(); //0 use for present 
+                // dd( $data['student_count_att_p']);
 
-               $data['staff_count_att_all'] = Staff::where('school_id',Auth::user()->school_id)->count();
-               $data['staff_count_att_p'] = StaffAttendance::where('school_id',Auth::user()->school_id)->where('attendance',0)->where('att_date', Carbon::today())->count(); //0 use for present 
+      $data['staff_count_att_all'] = Staff::where('school_id',Auth::user()->school_id)->count();
+      $data['staff_count_att_p'] = StaffAttendance::where('school_id',Auth::user()->school_id)->where('attendance',0)->where('att_date', $date)->count(); //0 use for present 
                
                // dd($data['student_count_att_a']);
                $data['staff_count_att_a'] = StaffAttendance::where('school_id',Auth::user()->school_id)->where('attendance',2)->where('att_date', Carbon::today())->count();//1 use for leave
 
-                // dd($data['staff_count_att_a']);
+                 // dd($data['student_count_att_p']);
                $data['staff_count_att_l'] = StaffAttendance::where('school_id',Auth::user()->school_id)->where('attendance',1)->where('att_date', Carbon::today())->count(); //2 use for absent
 
                // echo "<pre >";

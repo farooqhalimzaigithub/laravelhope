@@ -109,7 +109,6 @@ class SchoolController extends Controller
         $name = $request->input('name');
         $lat = $request->input('lat');
         $lng = $request->input('lng');
-        $address = $request->input('address');
         $land_mark = $request->input('land_mark');
         $school_type = $request->input('school_type');
         $school_code = $request->input('school_code');
@@ -139,7 +138,6 @@ class SchoolController extends Controller
                         'name' =>$name,
                         'lat' =>$lat,
                         'lng' =>$lng,
-                        'address' =>$address,
                         'land_mark' =>$land_mark,
                         'school_type' =>$school_type,
                         'school_code' =>$school_code,
@@ -184,7 +182,6 @@ class SchoolController extends Controller
         $school->name = $request->input('name');
         $school->lat = $request->input('lat');
         $school->lng = $request->input('lng');
-        // $school->address = $request->input('address');
         $school->land_mark = $request->input('land_mark');
         $school->school_type = $request->input('school_type');
         $school->school_code = $request->input('school_code');
