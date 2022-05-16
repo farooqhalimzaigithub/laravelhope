@@ -157,10 +157,6 @@
               <label for="inputState">Land Makr <span class="text-danger">*</span></label>
                 <input type="text" name="land_mark" class="form-control" value="{{ isset($school) ? $school->land_mark : '' }}" >
               </div>
-               <div class="form-group col-lg-3">
-              <label for="inputState">Address<span class="text-danger">*</span></label>
-                <input type="text" name="address" class="form-control" value="{{ isset($school) ? $school->address : '' }}" >
-              </div>
               </div>
               <div class="row">
 
@@ -235,13 +231,13 @@
         <div class="col-xl-2"><b>Status</b> <span class="text-danger">*</span></div>
           <div class="col-xl-2">
             <label class="">
-              <input type="radio" class="" name="status"  value="functional" {{ ($school->status=="functional")? "checked" : "" }}> Functional
+              <input type="radio" class="" name="status"  value="1" {{ ($school->status==1)? "checked" : "" }}> Functional
             </label>
           </div>
           
           <div class="col-xl-2">
             <label class="">
-              <input type="radio" class="" name="status" value="non-functional" {{ ($school->status=="non-functional")? "checked" : "" }}> Non-functional
+              <input type="radio" class="" name="status" value="0" {{ ($school->status==0)? "checked" : "" }}> Non-functional
             </label>
           </div>
         </div>
@@ -250,27 +246,27 @@
           <div class="col-xl-2"><b>Building Ownership</b> <span class="text-danger">*</span></div>
             <div class="col-xl-2">
               <label class="">
-                <input type="radio" class="" name="building_ownership" checked value="Govt" {{ ($school->building_ownership=="Govt")? "checked" : "" }}> Govt
+                <input type="radio" class="" name="building_ownership" checked value="0" {{ ($school->building_ownership==0)? "checked" : "" }}> Govt
               </label>
             </div>
             
             <div class="col-xl-2">
               <label class="">
-                <input type="radio" class="" name="building_ownership" value="VEC" {{ ($school->building_ownership=="VEC")? "checked" : "" }}> VEC
+                <input type="radio" class="" name="building_ownership" value="1" {{ ($school->building_ownership==1)? "checked" : "" }}> VEC
               </label>
             </div>
 
 
             <div class="col-xl-2">
               <label class="">
-                <input type="radio" class="" name="building_ownership" value="Communal" {{ ($school->building_ownership=="Communal")? "checked" : "" }}> Communal
+                <input type="radio" class="" name="building_ownership" value="2" {{ ($school->building_ownership==2)? "checked" : "" }}> Communal
               </label>
             </div>
 
 
             <div class="col-xl-2">
               <label class="">
-                <input type="radio" class="" name="building_ownership" value="Personal" {{ ($school->building_ownership=="Personal")? "checked" : "" }}> Personal
+                <input type="radio" class="" name="building_ownership" value="3" {{ ($school->building_ownership==3)? "checked" : "" }}> Personal
               </label>
             </div>
         </div>
@@ -279,17 +275,17 @@
           <div class="col-xl-2"><b>Gender</b> <span class="text-danger">*</span></div>
           <div class="col-xl-2">
             <label class="">
-              <input type="radio" class="" name="gender"  value="Boys" {{ ($school->gender=="Boys")? "checked" : "" }}> Boys
+              <input type="radio" class="" name="gender"  value="0" {{ ($school->gender==0)? "checked" : "" }}> Boys
             </label>
           </div>
           <div class="col-xl-2">
             <label class="">
-              <input type="radio" class="" name="gender" value="Girls" {{ ($school->gender=="Girls")? "checked" : "" }}> Girls
+              <input type="radio" class="" name="gender" value="1" {{ ($school->gender==1)? "checked" : "" }}> Girls
             </label>
           </div>
           <div class="col-xl-2">
             <label class="">
-              <input type="radio" class="" name="gender" value="Co-education" {{ ($school->gender=="Co-education")? "checked" : "" }} > Co-education
+              <input type="radio" class="" name="gender" value="2" {{ ($school->gender==2)? "checked" : "" }} > Co-education
             </label>
           </div>
         </div>

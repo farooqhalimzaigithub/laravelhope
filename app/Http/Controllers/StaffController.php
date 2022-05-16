@@ -55,8 +55,22 @@ class StaffController extends Controller
      */
     public function store(Request $request)
     {
-         
+        
+         $school_data=School::where('id',auth()->user()->school_id)->first();
+         // dd( $school_data);
+         $district_id=$school_data->district_id;
+         $tehsil_id=$school_data->tehsil_id;
+         $na_id=$school_data->na_id;
+         $pk_id=$school_data->pk_id;
+         $uc_id=$school_data->uc_id;
+         $vc_id=$school_data->vc_id;
          $staff=Staff::create([
+            'district_id'=>$district_id,
+            'tehsil_id'  =>$tehsil_id,
+            'na_id'      =>$na_id,
+            'pk_id'      =>$pk_id,
+            'uc_id'      =>$uc_id,
+            'vc_id'      =>$vc_id,
             'Teacher_Name'=>$request->Teacher_Name,
             'Father_Name'=>$request->Father_Name,
             'Qualification'=>$request->Qualification,

@@ -87,17 +87,8 @@ class SchoolController extends Controller
      */
     public function schoolUpdateMethod(Request $request)
     {
-        // dd($request->all());
-         $data['districts']=DB::table('districts')->get();
-        // dd($date['districts']);
-        // $data['sLevels']=DB::table('s_levels')->get();
-        // $data['transports']=DB::table('transports')->get();
-        // $data['nas']=DB::table('esef_na_lookup')->get();
-        // $data['pks']=DB::table('esef_pk_lookup')->get();
-        // $data['tehsils']=DB::table('esef_tehsil')->get();
-        // $data['ucs']=DB::table('esef_uc')->get();
 
-
+        $data['districts']=DB::table('districts')->get();
         $district_id = $request->input('district_id');
         $tehsil_id = $request->input('tehsil_id');
         $na_id = $request->input('na_id');
@@ -109,7 +100,6 @@ class SchoolController extends Controller
         $name = $request->input('name');
         $lat = $request->input('lat');
         $lng = $request->input('lng');
-        $address = $request->input('address');
         $land_mark = $request->input('land_mark');
         $school_type = $request->input('school_type');
         $school_code = $request->input('school_code');
@@ -139,7 +129,6 @@ class SchoolController extends Controller
                         'name' =>$name,
                         'lat' =>$lat,
                         'lng' =>$lng,
-                        'address' =>$address,
                         'land_mark' =>$land_mark,
                         'school_type' =>$school_type,
                         'school_code' =>$school_code,
@@ -151,7 +140,7 @@ class SchoolController extends Controller
                         'transport_id' =>$transport_id,
                         'area' =>$area
                     ]);
-        return back()->with( ['data' => $data] )->with('success','Action  Updated Successfully!!!');
+        return back()->with( ['data' => $data] )->with('success','School  Updated Successfully!');
 
     }
 
@@ -172,7 +161,7 @@ class SchoolController extends Controller
          $inputs['role_id'] = 1;
         // dd($inputs);
         $user = User::create($inputs);
-         $school = new School();
+        $school = new School();
         $school->district_id = Auth::user()->district_id;
         $school->tehsil_id = $request->input('tehsil_id');
         $school->na_id = $request->input('na_id');
@@ -184,7 +173,6 @@ class SchoolController extends Controller
         $school->name = $request->input('name');
         $school->lat = $request->input('lat');
         $school->lng = $request->input('lng');
-        // $school->address = $request->input('address');
         $school->land_mark = $request->input('land_mark');
         $school->school_type = $request->input('school_type');
         $school->school_code = $request->input('school_code');
@@ -246,18 +234,6 @@ class SchoolController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // dd($request->all());
-        //  $inputs = request()->validate([
-        //     'responsible_person' => 'required',
-        //     'email' => 'required',
-        //     'contact_number' => 'required',
-        //     'password' => 'required| min:3| max:7 |confirmed',
-        //     'password_confirmation' => 'required| min:3',
-        //     'district_id' => 'required'
-        // ]);
-       
-
-
 
         $school =School::find($id);
         $school->name = $request->input('name');

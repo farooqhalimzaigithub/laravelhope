@@ -18,7 +18,6 @@ class CreateSchoolsTable extends Migration
              $table->string('name');
              $table->string('lat');
              $table->string('lng');
-             $table->string('address');
              $table->string('land_mark');
              $table->string('school_type');
              $table->string('status');
@@ -32,7 +31,6 @@ class CreateSchoolsTable extends Migration
              $table->string('area');
              $table->integer('level_id')->unsigned()->nullable();
              $table->integer('transport_id')->unsigned()->nullable();
-             
              $table->integer('district_id')->unsigned()->nullable();
              $table->integer('tehsil_id')->unsigned()->nullable();
              $table->integer('na_id')->unsigned()->nullable();

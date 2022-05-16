@@ -26,7 +26,7 @@
 						</div>
 						<div class="col-lg-6">
 							<label> Email</label>
-							<input type="email" class="form-control" name="email" placeholder="Email" />
+							<input type="text" class="form-control" name="email" placeholder="Email" />
 							<span class="form-text text-muted">Please enter Email</span>
 						</div>
 						<div class="col-lg-6">

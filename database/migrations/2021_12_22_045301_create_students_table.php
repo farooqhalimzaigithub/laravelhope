@@ -55,7 +55,7 @@ class CreateStudentsTable extends Migration
             $table->integer('section_id')->unsigned()->nullable();
              //$table->foreign('current_class_id')->references('id')->on('sections')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('country_id')->unsigned()->nullable();
-             // $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade')->onUpdate('cascade');
+              // $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('school_id')->unsigned()->nullable();
              // $table->foreign('school_id')->references('id')->on('schools')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('user_id')->unsigned()->nullable();

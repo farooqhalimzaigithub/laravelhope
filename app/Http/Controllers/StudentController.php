@@ -158,38 +158,38 @@ public function showDetailStudent(Request $request)//fetch student Details
                 $student->remark=$request->remark;
                 $student->save();
                 $student_id=$student->id;
-     $fee_structure = FeeStructure::where('class_id',$request->current_class_id)->first();//this is error accur ewhen not add fee in fee structure note other wise they will pass null 
+     // $fee_structure = FeeStructure::where('class_id',$request->current_class_id)->first();//this is error accur ewhen not add fee in fee structure note other wise they will pass null 
      // dd($fee_structure);
-     $fee_amount=$fee_structure->amount;
+     // $fee_amount=$fee_structure->amount;
      // dd($fee_amount);
      // $css_id=$request->current_class_id;
 //  // after this add fee info for the futur
-   $css= Session::where('status',1)->first();
+   // $css= Session::where('status',1)->first();
    // dd($css);
    // $session_id = DB::table('sessions')->where('status',1)->pluck('id');
-    $session_id=$css->id;
+    // $session_id=$css->id;
     // dd($session_id);
 //   // Get year and month of initial date (From)
- $yearIni = date("Y", strtotime($css->start_date));
-$begin1   = $css->start_date;
-$end1     = $css->end_date;
-$begin    = new DateTime($begin1);
-$interval = new DateInterval('P1M');
-$end      = new DateTime($end1);
-$period   = new DatePeriod($begin, $interval, $end);
+//  $yearIni = date("Y", strtotime($css->start_date));
+// $begin1   = $css->start_date;
+// $end1     = $css->end_date;
+// $begin    = new DateTime($begin1);
+// $interval = new DateInterval('P1M');
+// $end      = new DateTime($end1);
+// $period   = new DatePeriod($begin, $interval, $end);
  // dd($period);
- foreach($period as $d){
-  $start_date = $d->format("Y-m-d");
-StudentFee::create([
-    'session_id'=>$session_id,
-    'school_id'=>auth()->user()->school_id,
-    'class_id'=>$request->current_class_id,
-    'month'=>$start_date,
-    'student_id'=>$student_id,
-    'amount'=>$fee_amount,
-    'received_amount'=>0
-]);
-}
+//  foreach($period as $d){
+//   $start_date = $d->format("Y-m-d");
+// StudentFee::create([
+//     'session_id'=>$session_id,
+//     'school_id'=>auth()->user()->school_id,
+//     'class_id'=>$request->current_class_id,
+//     'month'=>$start_date,
+//     'student_id'=>$student_id,
+//     'amount'=>$fee_amount,
+//     'received_amount'=>0
+// ]);
+// }
  return redirect()->route('students.index')->with('success','Data Added Successfully');
 
     }
